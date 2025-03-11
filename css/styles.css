@@ -28,7 +28,8 @@ header {
 
 .navbar {
     width: 200px;
-    padding: 1rem;
+    padding: 2rem;
+    font-size: 40px;
 }
 
 
@@ -38,7 +39,6 @@ header {
 
 .right-navbar{
     order: 3;
-    font-size: 40px;
 }
 
 main {
@@ -48,6 +48,16 @@ main {
     text-align: center;
     font-size: 60px;
 }
+
+.question{
+     margin: 50px;
+     font-size: 100px;
+
+ }
+
+.answer{
+     margin: 50px;
+ }
 
 input {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

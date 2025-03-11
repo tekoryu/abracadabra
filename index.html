@@ -14,18 +14,30 @@
   <source src="audio/ground_theme.mp3" type="audio/ogg">
   Your browser does not support the audio tag.
 </audio>
-<header>
-  <h1>Jogo da Tabuada da Arya</h1>
-</header>
-<main>
-  <div id="container">
-    <div id="question">
-      00 - 00 = 00
-    </div>
-    <div id="answer">
-      <input type="text" size="3" autofocus>
-    </div>
+  <header>
+    <h1>Jogo da Tabuada da Arya</h1>
+  </header>
+  <div class="container">
+<!--    barra lateral esquerda-->
+    <nav class="navbar left-navbar">
+      <span class="history"></span>
+    </nav>
+<!--    main content-->
+    <main>
+      <div id="question">
+        <span class="random_question">00 - 00 = 00</span>
+      </div>
+      <div id="answer">
+        <input type="text" size="3" autofocus>
+      </div>
+    </main>
+<!--    barra lateral direita-->
+    <nav class="navbar right-navbar">
+      <div class="placar">
+        <p>Placar</p>
+        <span class="score">00000</span>
+      </div>
+    </nav>
   </div>
-</main>
 </body>
 </html>

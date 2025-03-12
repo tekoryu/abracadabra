@@ -2,6 +2,7 @@
 const questionElement = document.getElementById('question');
 const answerElement = document.getElementById('answer');
 const answerList = document.getElementById('answers-list');
+const maxItems = 10;
 
 // Variables to store the current question and answer
 let num1, num2, correctAnswer;
@@ -69,7 +70,11 @@ function historyLogger(userAnswer, isCorrect) {
     // Cria o elemento
     const li = document.createElement('li');
     li.textContent = `${questionElement.innerHTML} = ${answerElement.value} ${isCorrect ? '✅' : '❌'}`;
-    // li.style.color = isCorrect ? 'green' : 'red';
+
+    if (answerList.children.length >= maxItems){
+        const lastChild = answerList.lastChild;
+        answerList.removeChild(lastChild);
+    }
 
     // Function to add answer to the list
     answerList.prepend(li);

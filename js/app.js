@@ -80,9 +80,16 @@ function historyLogger(userAnswer, isCorrect) {
     answerList.prepend(li);
 }
 
+function showFinalScore() {
 
+}
 // Do teh shit
 generateQuestion();
 
+//Tracks time
+setTimeout(() => {
+// Makes the game to end.
+
+}, 1000);
 
 

@@ -1,6 +1,7 @@
 // 1. Get references to HTML questions
-let questionElement = document.getElementById('question');
-let answerElement = document.getElementById('answer');
+const questionElement = document.getElementById('question');
+const answerElement = document.getElementById('answer');
+const answerList = document.getElementById('answers-list');
 
 // Variables to store the current question and answer
 let num1, num2, correctAnswer;
@@ -21,15 +22,17 @@ function generateQuestion() {
 // 3. Check the given answer
 function checkAnswer() {
     //Compare it to the correct answer
-    const userAnswer = parseInt(answerElement.value);
+    let userAnswer = parseInt(answerElement.value);
     // Check if it is right
     if (userAnswer === correctAnswer) {
         console.log(`Certo: ${userAnswer}`);
-        scoreUpdate(1)
+        scoreUpdate(1);
+        historyLogger(userAnswer,Boolean(true))
     }
     else {
         console.log(`Errado: ${userAnswer}`);
         scoreUpdate(0);
+        historyLogger(userAnswer,Boolean(false))
     }
     answerElement.value = '';
     generateQuestion();
@@ -51,16 +54,30 @@ function scoreUpdate(outcome) {
         score =+ score + 10
     }
     else if (outcome === 0) {
-        score =+ score - 10
+        score =+ score - 10;
+        if (score <= 0) {
+            score = 0
+        }
     }
-
     //Updates the span element
     const scoreText = document.getElementById('score');
     scoreText.innerHTML = score;
+}
 
+// 6. Logger
+function historyLogger(userAnswer, isCorrect) {
+    // Cria o elemento
+    const li = document.createElement('li');
+    li.textContent = `${questionElement.innerHTML} = ${answerElement.value} ${isCorrect ? '✅' : '❌'}`;
+    // li.style.color = isCorrect ? 'green' : 'red';
+
+    // Function to add answer to the list
+    answerList.prepend(li);
 }
 
 
 // Do teh shit
 generateQuestion();
+
+
 

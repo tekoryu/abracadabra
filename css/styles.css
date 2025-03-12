@@ -49,13 +49,13 @@ main {
     font-size: 60px;
 }
 
-.question{
+#question{
      margin: 50px;
      font-size: 100px;
 
  }
 
-.answer{
+#answer{
      margin: 50px;
  }
 

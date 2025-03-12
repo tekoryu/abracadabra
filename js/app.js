@@ -3,6 +3,10 @@ const questionElement = document.getElementById('question');
 const answerElement = document.getElementById('answer');
 const answerList = document.getElementById('answers-list');
 const maxItems = 10;
+const scoreModal = document.getElementById('scoreModal');
+const scoreTotal = document.getElementById('score-total');
+const closeModalButton = document.getElementById('closeModal');
+const gameDuration = 120;
 
 // Variables to store the current question and answer
 let num1, num2, correctAnswer;
@@ -40,13 +44,6 @@ function checkAnswer() {
 
 }
 
-// 4. Add event listeners to the input
-answerElement.addEventListener('keydown', function(event){
-    if (event.key === 'Enter') {
-        checkAnswer();
-    }
-});
-
 // 5. Updates the score based on users inputs
 function scoreUpdate(outcome) {
     // If outcome is 0 subtract 10 points, if outcome is 1 adds 10 points
@@ -81,15 +78,25 @@ function historyLogger(userAnswer, isCorrect) {
 }
 
 function showFinalScore() {
-
+    scoreModal.style.display = 'flex';
+    scoreTotal.textContent = score;
 }
+
+// 4. Add event listeners to the input
+answerElement.addEventListener('keydown', function(event){
+    if (event.key === 'Enter') {
+        checkAnswer();
+    }
+});
+closeModalButton.addEventListener('click', function(){
+    window.location.reload();
+});
+
 // Do teh shit
 generateQuestion();
 
 //Tracks time
 setTimeout(() => {
 // Makes the game to end.
-
-}, 1000);
-
-
+    showFinalScore();
+}, gameDuration * 1000);
